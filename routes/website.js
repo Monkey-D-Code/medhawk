@@ -10,7 +10,7 @@ router.get('/',(req,res,next)=>{
         heading : 'Medhawk EMS',
         tagline : 'Saving lives is our motto',
         short_bio : 'Emergency Medical services with assistance provided for doctor consultation provision for hiring nurses, physiotherapist, Aaya, Dietician etc. Consultancy for medical and para medical jobs; Ambulance services and many more',
-        about : 'Emergency Medical services with assistance provided for doctor consultation provision for hiring nurses, physiotherapist, Aaya, Dietician etc. Learning Basic life saving skills, first aid skills, wound dressing skills etc Hiring or purchase of medical devices Provision for Lab tests , imaging etc. Consultancy for medical and para medical jobs Ambulance services and many more',
+        why_choose_us : 'We are the one and only, who will assist you for multiple services under one roof. Guided by a group of medicos peoples’ need is easily understood and multiple customizable essential services provided up to the mark',
 
     });
 })
@@ -21,11 +21,12 @@ router.get('/about',(req,res,next)=>{
     });
 })
 router.get('/departments',(req,res,next)=>{
-    res.send('departments');
+    res.render('department' , {
+        title:'Our Departments | Medhawk',
+        activeDpt : true,
+    });
 })
-router.get('/doctors',(req,res,next)=>{
-    res.send('doctors');
-})
+
 router.get('/contact',(req,res,next)=>{
     res.render('contact',{
         title:'Contact Us | Medhawk',
@@ -35,6 +36,12 @@ router.get('/contact',(req,res,next)=>{
 router.get('/appointment',(req,res,next)=>{
     res.render('apointment' ,{
         title : 'Appointment | Medhawk'
+    });
+})
+router.get('/services',(req,res,next)=>{
+    res.render('services' ,{
+        title : 'Our Services | Medhawk',
+        activeServices : true,
     });
 })
 

@@ -8,6 +8,11 @@ const blogRoutes = require('./routes/blog');
 const websiteRoutes = require('./routes/website');
 const authRoutes = require('./routes/auth');
 
+// importing utilities
+const sequelize = require('./utils/database');
+
+// testing database connection
+
 
 const port = process.env.PORT || 8000;
 
@@ -25,11 +30,15 @@ app.set('views','views');
 app.use('/' , websiteRoutes);
 app.use('/blog',blogRoutes);
 app.use('/auth' , authRoutes);
-app.use((re,res,next)=>{
+app.use((req,res,next)=>{
     res.status(404).render('404',{title:'Page not found'});
 })
 
+// sync the databse to models
+sequelize.sync().then((result)=>{
+    
+    app.listen(port , ()=>{
+        console.log(`Server running at ${port}`);
+    });
+}).catch(err=>console.log(err));
 
-app.listen(port , ()=>{
-    console.log(`Server running at ${port}`);
-})
