@@ -6270,3 +6270,41 @@ h1, h2, h3, h4, h5, h6 {
     display:inline;
     margin-top:0.3em;
 }
+.medhawk-admin-form{
+  width : 50%;
+  display:block;
+  margin:auto;
+  margin-bottom : 2em;
+}
+
+ .breadcrumb_iner_item h4 {
+        color : white;
+        text-align: center;
+    }
+    .page-details{
+        color : white;
+        text-align: center;
+        border: 1px solid white;
+        border-radius: 0.6em;
+        padding : 0.4em;
+        width : 60%;
+        display: block;
+        margin: auto;
+    }
+    .service-desc{
+      padding: 1em;
+      margin: 1em;
+      font-size: 1.1em;
+      border: 1px solid rgb(8, 97, 104);
+      border-radius: 0.4em;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+    .contact-info{
+      text-align: center;
+       grid-row-start: 3;
+      grid-row-end: 4;
+      color: #0070fa;
+      font-size: .8em;
+
+    }

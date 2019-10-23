@@ -24,8 +24,11 @@ const Service = sequelize.define('service',{
         allowNull : true,
         unique : true,
         notEmpty:false,
-    }
+    },
     
+    
+},{
+    timestamps : false,
 });
 
 module.exports = Service;

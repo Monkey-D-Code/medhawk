@@ -1,0 +1,38 @@
+<section class="breadcrumb_part breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2 style="margin-top:1em">{{service.heading}}</h2>
+                            <h4>A service is a definition of one of the many functions of Medhawk Ems</h4>
+                            <p class='page-details'>Each service provided by Medhawk EMS is premium .</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src={{service.imageUrl}} alt="{{service.heading}}" class="responsive">
+                    {{#if isAuthenticated}}
+                        <hr>
+                        <a href="/service/{{service.id}}/update" class="btn btn-info" style="width:40%;color:white !important;">Edit service</a>
+                        <a href="/service/{{service.id}}/delete" class="btn btn-danger" style="width:40%;color:white !important">Delete service</a>
+                        <hr>
+                    {{/if}}
+                </div>
+                <div class="col-md-6" style="margin-top:4em;">
+                    <p class="service-desc">{{service.description}}</p>
+                    <p class="contact-info">
+                        To know more call 7595850506 | Email us at <a>services@medhawk.in</a>
+                    </p>
+                </div>
+            </div>
+            
+
+        </div>
+    </section>

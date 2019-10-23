@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // importing routes
 const blogRoutes = require('./routes/blog');
@@ -19,9 +21,15 @@ const port = process.env.PORT || 8000;
 const app = express();
 app.use(bodyParser.urlencoded({extended:false}));
 
+app.use(session({
+    secret:"fjhgfjghfvjtyvjytfjvtyvfghfjytrutyrvutyvrjujyfv",
+    resave:false,
+    saveUninitialized:false,
+    store: new SequelizeStore({db:sequelize}),
+}));
+
 app.engine('hbs' , hbs({
-    extname : 'hbs',
-    
+    extname : 'hbs',  
 }));
 app.set('view engine' , 'hbs');
 app.use('/static',express.static(path.join(__dirname , 'public')));

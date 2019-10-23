@@ -1,18 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+// importing controllers
+const authController = require('../controllers/auth');
 
-router.get('/login', (req,res,next)=>{
-    res.render('login',{
-        title:'Login | Medhawk',
-        activeLogin : true,
-    })
-})
 
-router.post('/login' , (req,res,next)=>{
-    console.log(req.body);
-    res.send('Done');
-})
+router.get('/login', authController.loginPage);
+router.post('/login' , authController.login);
+router.get('/profile',authController.profilePage);
+router.get('/logout',authController.logout);
 
 
 

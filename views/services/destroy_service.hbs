@@ -1,0 +1,26 @@
+<section class="breadcrumb_part breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2 style="margin-top:1em">{{heading}}</h2>
+                            <h4>Are you sure you want to delete ?</h4>
+                            <p class='page-details'>This process is not reversible.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<section>
+    <div class="container">
+        <img src={{imageUrl}} alt="{{heading}}" class="responsive" style="display: block;margin:auto;">
+        <br/>
+        <form method="POST" to="/service/{{id}}/delete">
+            <div class="form-group">
+                <button class="btn btn-danger" style="width:15em;display:block;margin:auto;">Confirm Delete</button>
+            </div>
+        </form>
+    </div>
+</section>

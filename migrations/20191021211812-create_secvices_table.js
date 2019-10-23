@@ -24,7 +24,8 @@ module.exports = {
           allowNull : true,
           unique : true,
           notEmpty:false,
-      }
+      },
+      
     })
   },
 

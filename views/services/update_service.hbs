@@ -6,9 +6,9 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2 style="margin-top:1em">Create New Service</h2>
-                            <h4>A service is a definition of one of the many functions of Medhawk Ems</h4>
-                            <p class='page-details'>Creating a new service increases the diversity of Medhawk EMS in the field.</p>
+                            <h2 style="margin-top:1em">Update</h2>
+                            <h4>{{heading}}</h4>
+                            <p class='page-details'>Edit anytime to keep medhawk updated.</p>
                         </div>
                     </div>
                 </div>
@@ -18,6 +18,11 @@
 
 <section style="margin-top:5em;">
     <div class="container">
+        {{#if err}}
+            <div class="alert alert-error text-center">
+                {{err}}
+            </div>
+        {{/if}}
         {{#if successMessage}}
             <div class="alert alert-success text-center">
                 {{successMessage}}
@@ -28,19 +33,19 @@
                 {{errorMessage}}
             </div>
         {{/if}}
-        <form class='medhawk-admin-form' method="POST" to="/create-new-service">
+        <form class='medhawk-admin-form' method="POST" to="/service/{{id}}/update">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Heading" name="heading" required>
+                <input type="text" class="form-control" placeholder="Heading" name="heading" value="{{heading}}" required>
                 
             </div>
             <div class="form-group">
-                <textarea name="description" id="" cols="30" rows="10" class="form-control" placeholder="Decribe the service" required></textarea>
+                <textarea name="description" id="" cols="30" rows="10" class="form-control" placeholder="Decribe the service" required>{{description}}</textarea>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Paste Image link here" name="imageUrl" required>
+                <input type="text" class="form-control" placeholder="Paste Image link here" name="imageUrl" value="{{imageUrl}}" required>
             </div>
             <div class="form-group">
-                <button class="btn btn-success btn-block" type="submit">Create New Service</button>
+                <button class="btn btn-primary btn-block" type="submit">Update {{heading}}</button>
             </div>
         </form>
     </div>
