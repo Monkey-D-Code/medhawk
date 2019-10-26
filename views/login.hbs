@@ -40,9 +40,10 @@
                 <input class="form-control" name="password" type="password" onfocus="this.placeholder = ''"
                         onblur="this.placeholder = 'Enter your password'" placeholder='Enter your password'>
             </div>
+            <input type="hidden" value="{{csrfToken}}" name="_csrf">
             <div class="form-group mt-3">
                 <button type="submit" class="button button-contactForm btn_1">Login</button>
-                </div>
+            </div>
 
         </form>
         

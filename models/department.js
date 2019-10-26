@@ -1,4 +1,4 @@
-const Sequeliz = require('sequelize');
+const Sequelize = require('sequelize');
 const sequelize = require('../utils/database');
 
 
@@ -9,6 +9,23 @@ const Department = sequelize.define('department',{
         allowNull : false,
         primaryKey : true,
     },
-});
+    name:{
+        type:Sequelize.STRING,
+        allowNull:false,
+        unique:true,
+    },
+    about:{
+        type:Sequelize.TEXT,
+        allowNull:false,
+        
+    },
+    imageUrl:{
+        type:Sequelize.STRING,
+        isUrl:true,
+        max:500,
+        allowNull:false,
+    },
+
+},{timestamps:false});
 
 module.exports = Department;

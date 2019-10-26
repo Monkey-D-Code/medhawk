@@ -1,0 +1,47 @@
+<section class="breadcrumb_part breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2 style="margin-top:1em;">{{title}}</h2>
+                            <h4>{{name}}</h4>
+                            <p class='page-details'>Medhawk operates in several sections in the fields</p>
+                            <br/>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container" style='margin-top:2em;'>
+            <form method="POST" to="/departments/{{#if fromCreate}}create{{/if}}{{#if fromUpdate}}{{id}}/update{{/if}}" class='medhawk-admin-form'>
+                {{#if formErrors}}
+                    <div class="alert alert-danger">
+                        {{#each formErrors}}
+                            <p><span class="badge badge-danger">{{this.field}}</span> {{this.message}}</p>
+                        {{/each}}
+                    </div>
+                {{/if}}
+                {{#if err}}
+                    <div class="alert alert-danger"><p>{{err}}</p></div>
+                {{/if}}
+                <div class="form-group">
+                    <input type="text" class="form-control" name='name' placeholder="Department name" required value="{{name}}">
+                </div>
+                <div class="form-group">
+                    <textarea name="about" id="" cols="30" rows="10" class="form-control" placeholder="Describe the department" required>{{about}}</textarea>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name='imageUrl' placeholder="Paste image link here" required value="{{imageUrl}}">
+                </div>
+                <input type="hidden" value="{{csrfToken}}" name="_csrf">
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type='submit'>{{#if fromCreate}}Create{{/if}}{{#if fromUpdate}}Update{{/if}} Department</button>
+                </div>
+            </form>
+        </div>
+    </section>

@@ -5,6 +5,7 @@ exports.createServicePage = (req,res,next)=>{
         res.render('services/create_service',{
             title:'Create a Service | Medhawk',
             isAuthenticated : req.session.isAuthenticated,
+            csrfToken:req.csrfToken(),
         })
     }else{
         res.redirect('/auth/login');
@@ -90,6 +91,7 @@ exports.updateServicePage = (req,res,next)=>{
                 description,
                 imageUrl,
                 isAuthenticated : req.session.isAuthenticated,
+                csrfToken:req.csrfToken(),
             });
             
         })
@@ -158,6 +160,7 @@ exports.destroyServicePage = (req,res,next)=>{
                 heading,
                 imageUrl,
                 isAuthenticated : req.session.isAuthenticated,
+                csrfToken:req.csrfToken(),
             })
         })
         .catch(err=>{

@@ -11,6 +11,7 @@ exports.loginPage = (req,res,next)=>{
         res.render('login',{
             title : 'Login | Medhawk',
             activeLogin:true,
+            csrfToken:req.csrfToken(),
         });
     }
     

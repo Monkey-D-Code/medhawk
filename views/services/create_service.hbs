@@ -39,6 +39,7 @@
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Paste Image link here" name="imageUrl" required>
             </div>
+            <input type="hidden" value="{{csrfToken}}" name="_csrf">
             <div class="form-group">
                 <button class="btn btn-success btn-block" type="submit">Create New Service</button>
             </div>

@@ -4,11 +4,14 @@ const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const csrf = require('csurf');
 
 // importing routes
 const blogRoutes = require('./routes/blog');
 const websiteRoutes = require('./routes/website');
 const authRoutes = require('./routes/auth');
+const departmentRoutes = require('./routes/department');
+const doctorRoutes = require('./routes/doctor');
 
 // importing utilities
 const sequelize = require('./utils/database');
@@ -27,6 +30,8 @@ app.use(session({
     saveUninitialized:false,
     store: new SequelizeStore({db:sequelize}),
 }));
+const csrfProtection = csrf();
+app.use(csrfProtection);
 
 app.engine('hbs' , hbs({
     extname : 'hbs',  
@@ -35,9 +40,18 @@ app.set('view engine' , 'hbs');
 app.use('/static',express.static(path.join(__dirname , 'public')));
 app.set('views','views');
 
+
+app.use((req,res,next)=>{
+    res.locals.isAuthenticated = req.session.isAuthenticated;
+    res.locals.csrfToken = req.csrfToken();
+    next();
+})
+
 app.use('/' , websiteRoutes);
 app.use('/blog',blogRoutes);
 app.use('/auth' , authRoutes);
+app.use('/departments',departmentRoutes);
+app.use('/doctor',doctorRoutes);
 app.use((req,res,next)=>{
     res.status(404).render('404',{title:'Page not found'});
 })

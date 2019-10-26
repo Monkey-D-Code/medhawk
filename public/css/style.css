@@ -6276,7 +6276,11 @@ h1, h2, h3, h4, h5, h6 {
   margin:auto;
   margin-bottom : 2em;
 }
-
+.medhawk-admin-form input,textarea{
+  border: 1px solid #0070fa;
+  color : #549e0f !important;
+  outline-color: #78df17;
+}
  .breadcrumb_iner_item h4 {
         color : white;
         text-align: center;

@@ -7,7 +7,12 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>depertments</h2>
+                            <h2 style="margin-top:1em;">departments</h2>
+                            <p class='page-details'>Medhawk operates in several sections in the fields</p>
+                            <br/>
+                            {{#if isAuthenticated}}
+                                <a href="/departments/create" class="btn btn-info" style="width:20em;display:block;margin:auto;">Create a Department</a>
+                            {{/if}}
                         </div>
                     </div>
                 </div>
@@ -24,44 +29,39 @@
                     <div class="depertment_content">
                         <div class="row justify-content-center">
                             <div class="col-xl-8">
-                                <h2>Our Depertment</h2>
+                                {{#if empty}}
+                                    <div class="alert alert-warning">
+                                        <h4>No departments found.</h4>
+                                    </div>
+                                {{/if}}
+                                <h2>Our Department</h2>
                                 <div class="row">
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="single_our_depertment">
-                                            <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
-                                                    alt=""></span>
-                                            <h4>Better Future</h4>
-                                            <p>Darkness multiply rule Which from without life creature blessed
-                                                give moveth moveth seas make day which divided our have.</p>
+                                    
+                                    {{#each departments}}
+                                        <div class="col-lg-6 col-sm-6">
+                                    
+                                            <div class="single_our_depertment">
+                                                 
+                                                    
+                                                <img src="{{this.imageUrl}}"
+                                                        alt="{{this.name}}" style="width:100%;">
+                                                <hr/>
+                                                <h4>{{this.name}}</h4>
+                                                <p>{{this.about}}</p>
+                                                {{#if ../isAuthenticated}}
+                                                    <hr>
+                                                    <a href="/departments/{{this.id}}/update" class="btn btn-primary">Edit</a>
+                                                    <a href="/departments/{{this.id}}/delete" class="btn btn-danger">Delete</a>
+
+                                                {{/if}}
+                                                
+                                            </div>
+                                             
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="single_our_depertment">
-                                            <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
-                                                    alt=""></span>
-                                            <h4>Better Future</h4>
-                                            <p>Darkness multiply rule Which from without life creature blessed
-                                                give moveth moveth seas make day which divided our have.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="single_our_depertment">
-                                            <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
-                                                    alt=""></span>
-                                            <h4>Better Future</h4>
-                                            <p>Darkness multiply rule Which from without life creature blessed
-                                                give moveth moveth seas make day which divided our have.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="single_our_depertment">
-                                            <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
-                                                    alt=""></span>
-                                            <h4>Better Future</h4>
-                                            <p>Darkness multiply rule Which from without life creature blessed
-                                                give moveth moveth seas make day which divided our have.</p>
-                                        </div>
-                                    </div>
+                                       
+                                    {{/each}}
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
@@ -81,94 +81,46 @@
                     <div class="section_tittle text-center">
                         <h2> Experienced Doctors</h2>
                         <p>Face replenish sea good winged bearing years air divide wasHave night male also</p>
+                        {{#if isAuthenticated}}
+                            <a href="/doctor/create" class="btn btn-success">Add Doctor</a>
+                        {{/if}}
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="img/doctor/doctor_1.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
+                {{#each doctors}}
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="single_blog_item">
+                            <div class="single_blog_img">
+                                <img src="{{this.imageUrl}}" alt="{{this.name}}">
+                                <div class="social_icon">
+                                    <ul>
+                                        <li><a href="{{this.facebookLink}}"> <i class="ti-facebook"></i> </a></li>
+                                        <li><a href="{{this.twitterLink}}"> <i class="ti-twitter-alt"></i> </a></li>
+                                        <li><a href="{{this.instagramLink}}"> <i class="ti-instagram"></i> </a></li>
+                                        
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="single_text">
-                            <div class="single_blog_text">
-                                <h3>DR Adam Billiard</h3>
-                                <p>Heart specialist</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="img/doctor/doctor_4.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single_text">
-                            <div class="single_blog_text">
-                                <h3>DR Adam Billiard</h3>
-                                <p>Medicine specialist</p>
+                            <div class="single_text">
+                                <div class="single_blog_text">
+                                    <h3>{{this.name}}</h3>
+                                    <p>{{this.role}}</p>
+                                </div>
+                                {{#if ../isAuthenticated}}
+                                    <hr>
+                                    <a href="/doctor/{{this.id}}/update" class="btn btn-info">Edit</a>
+                                    <a href="/doctor/{{this.id}}/delete" class="btn btn-danger">Delete</a>
+                                    <hr>
+                                {{/if}}
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="img/doctor/doctor_2.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single_text">
-                            <div class="single_blog_text">
-                                <h3>DR Fred Macyard</h3>
-                                <p>CHeart specialist</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="img/doctor/doctor_3.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single_text">
-                            <div class="single_blog_text">
-                                <h3>DR Justin Stuard</h3>
-                                <p>Heart specialist</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
+                {{/each}}
+                
+                
             </div>
         </div>
     </section>

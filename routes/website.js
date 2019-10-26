@@ -5,6 +5,7 @@ const router = express.Router();
 // importing controllers
 const serviceController = require('../controllers/service');
 
+
 router.get('/',(req,res,next)=>{
     
     res.render('index',{
@@ -24,13 +25,7 @@ router.get('/about',(req,res,next)=>{
         isAuthenticated : req.session.isAuthenticated,
     });
 })
-router.get('/departments',(req,res,next)=>{
-    res.render('department' , {
-        title:'Our Departments | Medhawk',
-        activeDpt : true,
-        isAuthenticated : req.session.isAuthenticated,
-    });
-})
+
 
 router.get('/contact',(req,res,next)=>{
     res.render('contact',{
