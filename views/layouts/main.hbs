@@ -36,6 +36,7 @@
             color:rgb(169, 238, 79) !important;
         }
     </style>
+    
 </head>
 
 <body>
@@ -97,7 +98,7 @@
                                 
                             </ul>
                         </div>
-                        <a class="btn_2 d-none d-lg-block" href="#">Call Now | 7595850506</a>
+                        <a class="btn_2 d-none d-lg-block" href="#">Call Now | {{brand.contactNumber}}</a>
                     </nav>
                 </div>
             </div>
@@ -118,10 +119,10 @@
                         <a href="#" class="footer_logo"> <img src="/static/img/logo.png" alt="#"> </a>
                         <p>Medhawk Emergency Medical Services Private Limited</p>
                         <div class="social_logo">
-                            <a href="#"><i class="ti-facebook"></i></a>
-                            <a href="#"> <i class="ti-twitter"></i> </a>
-                            <a href="#"><i class="ti-instagram"></i></a>
-                            <a href="#"><i class="ti-skype"></i></a>
+                            <a href="{{brand.facebookLink}}"><i class="ti-facebook"></i></a>
+                            <a href="{{brand.twitterLink}}"> <i class="ti-twitter"></i> </a>
+                            <a href="{{brand.instagramLink}}"><i class="ti-instagram"></i></a>
+                            
                         </div>
                     </div>
                     <div class="col-xl-2 col-sm-6 col-md-4 single-footer-widget">
@@ -139,11 +140,11 @@
                     <div class="col-xl-2 col-sm-6 col-md-4 single-footer-widget">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><a href="#">In the community</a></li>
-                            <li><a href="#">IU health foundation</a></li>
-                            <li><a href="#">Family support </a></li>
-                            <li><a href="#">Business solution</a></li>
-                            <li><a href="#">Community clinic</a></li>
+                            {{#each services}}
+                                <li><a href="/service/{{this.id}}">{{this.heading}}</a></li>
+                            {{/each}}
+                            
+                            
                         </ul>
                     </div>
                     <div class="col-xl-2 col-sm-6 col-md-6 single-footer-widget">
@@ -186,10 +187,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Devel
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </p>
                     <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
-                        <a href="#"><i class="ti-facebook"></i></a>
-                        <a href="#"> <i class="ti-twitter"></i> </a>
-                        <a href="#"><i class="ti-instagram"></i></a>
-                        <a href="#"><i class="ti-skype"></i></a>
+                        <a href="{{brand.facebookLink}}"><i class="ti-facebook"></i></a>
+                        <a href="{{brand.twitterLink}}"> <i class="ti-twitter"></i> </a>
+                        <a href="{{brand.instagramLink}}"><i class="ti-instagram"></i></a>
+                        
                     </div>
                 </div>
             </div>
@@ -216,6 +217,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Devel
     <script src="/static/js/contact.js"></script>
     <!-- custom js -->
     <script src="/static/js/custom.js"></script>
+    
 </body>
 
 </html>

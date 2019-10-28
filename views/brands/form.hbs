@@ -1,0 +1,67 @@
+<section class="breadcrumb_part breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2 style="margin-top:1em;">{{title}}</h2>
+                            <h4>{{name}}</h4>
+                            <p class='page-details'>All details about brand</p>
+                            <br/>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section>
+        <div class="container" style='margin-top:2em;'>
+            <form method="POST" to="/brand/{{#if fromCreate}}create{{/if}}{{#if fromUpdate}}{{id}}/update{{/if}}" class='medhawk-admin-form'>
+                {{#if formErrors}}
+                    <div class="alert alert-danger">
+                        {{#each formErrors}}
+                            <p><span class="badge badge-danger">{{this.field}}</span> {{this.message}}</p>
+                        {{/each}}
+                    </div>
+                {{/if}}
+                {{#if err}}
+                    <div class="alert alert-danger"><p>{{err}}</p></div>
+                {{/if}}
+                <h2 class="text-center">Information</h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" name='fullName' placeholder="Full name of brand" required value="{{fullName}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name='shortName' placeholder="Short form of brand"  value="{{shortName}}">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" name='contactNumber' placeholder="Main Contact Number" required value="{{contactNumber}}">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name='email' placeholder="Email address" required value="{{email}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name='address' placeholder="Mention head office address" required value="{{address}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name='openHours' placeholder="Mention working hours" required value="{{openHours}}">
+                </div>
+                <h2 class="text-center">Social Media Links</h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" name='facebookLink' placeholder="Paste link to facebook page here"  value="{{facebookLink}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name='twitterLink' placeholder="Paste link to twitter account here"  value="{{twitterLink}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name='instagramLink' placeholder="Paste link to instagram account here"  value="{{instagramLink}}">
+                </div>
+                <input type="hidden" value="{{csrfToken}}" name="_csrf">
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type='submit'>{{#if fromCreate}}Create{{/if}}{{#if fromUpdate}}Update{{/if}} Brand</button>
+                </div>
+            </form>
+        </div>
+    </section>

@@ -11,3 +11,63 @@
             </div>
         </div>
     </section>
+    <hr>
+    <section class="regervation_part section_padding">
+        <div class="container">
+            <div class="row align-items-center regervation_content">
+                <div class="col-lg-7">
+                    <div class="regervation_part_iner">
+                        <form method="POST" to="/appointment">
+                            <h2>Share your queries with us and we will get back to you</h2>
+                            {{#if formErrors}}
+                                <div class="alert alert-danger">
+                                    {{#each formErrors}}
+                                        <p><span class='badge badge-info'>{{this.field}}</span> {{this.message}}</p>
+                                    {{/each}}
+                                </div>
+
+                            {{/if}}
+                            {{#if err}}
+                                <h4 class="alert alert-danger">{{err}}</h4>
+
+                            {{/if}}
+                            {{#if successMsg}}
+                                <h4 class="alert alert-success">{{successMsg}}</h4>
+                            {{/if}}
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="inputEmail4" placeholder="Full Name" name="fullName" value="{{fullName}}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" class="form-control" id="inputPassword4"
+                                        placeholder="Email address" name='email' value="{{email}}">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="number" class="form-control" id="inputEmail4" placeholder="Phone Number" name="phoneNumber" value="{{phoneNumber}}">
+                                </div>
+                                
+                                <div class="form-group col-md-6">
+                                    <textarea class="form-control" id="Textarea" rows="4"
+                                        placeholder="Mention your home address" name='address'>{{address}}</textarea>
+                                </div>
+                                <div class="form-group time_icon col-md-6">
+                                    <textarea class="form-control" id="Textarea" rows="4"
+                                        placeholder="Mention the problems you are facing" name="problem">{{problem}}</textarea>
+                                </div>
+                               
+                            </div>
+                            <div class="regerv_btn">
+                                <input type="hidden" value="{{csrfToken}}" name="_csrf">
+                                <button class="btn_2" type="submit">Confirm Your Appointment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <div class="reservation_img">
+                        <img src="/static/img/reservation.png" alt="" class="reservation_img_iner">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

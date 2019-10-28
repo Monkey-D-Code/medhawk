@@ -1,6 +1,8 @@
 const bcrypt = require('bcryptjs');
 
 const User = require('../models/user');
+const Appointment = require('../models/appointment');
+const Message = require('../models/message');
 
 
 exports.loginPage = (req,res,next)=>{
@@ -63,11 +65,27 @@ exports.profilePage = (req,res,next)=>{
     const user = req.session.user;
     
     if(req.session.isAuthenticated){
-        res.render('auth/profile',{
-            title:`${user.firstName} ${user.lastName}`,
-            user:user,
-            isAuthenticated : req.session.isAuthenticated,
-        })
+        Promise.all([
+            Appointment.findAll(),
+            Message.findAll(),
+        ])
+            .then(([apts,messages])=>{
+                res.render('auth/profile',{
+                    title:`${user.firstName} ${user.lastName}`,
+                    user:user,
+                    appointments : apts,
+                    messages,
+                })
+            })
+            .catch(err=>{
+                console.log(err);
+                res.render('auth/profile',{
+                    title:`${user.firstName} ${user.lastName}`,
+                    user:user,
+                    err,
+                })
+            })
+        
     }else{
         res.redirect('/auth/login');
     }

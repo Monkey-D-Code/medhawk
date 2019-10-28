@@ -16,6 +16,7 @@
                             <h2 style="margin-top:1em"><img src="{{user.displayImageUrl}}" class="dp_image" /> Profile</h2>
                             <h4>{{user.firstName}} {{user.middleName}} {{user.lastName}}</h4>
                             <p class='page-details'>Now You have all control of Medhawk</p>
+                            
                         </div>
                     </div>
                 </div>
@@ -24,3 +25,107 @@
     </section>
     <br/>
     <br/>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4 class="text-center">Website Details</h4>
+                    <table class="text-center table table-bordered">
+                        <tr>
+                            <td>Full Name</td>
+                            <td>{{brand.fullName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Short Name</td>
+                            <td>{{brand.shortName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Hotline</td>
+                            <td>{{brand.contactNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{brand.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>{{brand.address}}</td>
+                        </tr>
+                        <tr>
+                            <td>Open Hours</td>
+                            <td>{{brand.openHours}}</td>
+                        </tr>
+                    </table>
+
+                    <table class="table table-bordered">
+                        <h4 class="text-center">Social Media Links</h4>
+                        <tr>
+                            <td>Facebook Link</td>
+                            <td>{{brand.facebookLink}}</td>
+                        </tr>
+                        <tr>
+                            <td>Twitter Link</td>
+                            <td>{{brand.twitterLink}}</td>
+                        </tr>
+                        <tr>
+                            <td>Instagram Link</td>
+                            <td>{{brand.instagramLink}}</td>
+                        </tr>
+                    </table>
+                    <a href="/brand/{{brand.id}}/update" class="btn_2" style="display: block;margin:auto;">Update Website Information</a>
+                </div>
+                <div class="col-md-8">
+                    <h4 class="text-center">Appointments</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Problem</td>
+                                <td>Phone</td>
+                                <td>Email</td>
+                                <td>Address</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each appointments}}
+                                <tr>
+                                    <td>{{this.fullName}}</td>
+                                    <td>{{this.problem}}</td>
+                                    <td>{{this.phone}}</td>
+                                    <td>{{this.email}}</td>
+                                    <td>{{this.address}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <h4 class="text-center">Messages from users</h4>
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Subject</td>
+                                <td>Email</td>
+                                <td>Message</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each messages}}
+                                <tr>
+                                    <td>{{this.name}}</td>
+                                    <td>{{this.subject}}</td>
+                                    <td>{{this.email}}</td>
+                                    <td>{{this.message}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
