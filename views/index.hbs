@@ -225,41 +225,32 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="single-home-blog">
-                        <div class="card">
-                            <img src="/static/img/blog/blog_2.png" class="card-img-top" alt="blog">
-                            <div class="card-body">
-                                <a href="blog.html">
-                                    <h5 class="card-title">First cattle which earth unto let health for
-                                        can get and see what you </h5>
-                                </a>
-                                <ul>
-                                    <li> <span class="ti-user"></span>Jhon mike</li>
-                                    <li> <span class="ti-bookmark"></span>Clinic, doctors</li>
-                                </ul>
+                {{#if posts}}
+                    {{#each posts}}
+                        <div class="col-sm-6">
+                            <div class="single-home-blog">
+                                <div class="card">
+                                    <img src="{{this.cover_image_url}}" class="card-img-top" alt="{{this.title}}">
+                                    <div class="card-body">
+                                        <a href="/post/{{this.id}}/details">
+                                            <h5 class="card-title">{{this.title}}</h5>
+                                        </a>
+                                        <ul>
+                                            <li> <span class="ti-user"></span>{{../brand.fullName}}</li>
+                                            <li> <span class="ti-bookmark"></span>Clinic, doctors</li>
+                                        </ul>
 
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="single-home-blog">
-                        <div class="card">
-                            <img src="/static/img/blog/blog_3.png" class="card-img-top" alt="blog">
-                            <div class="card-body">
-                                <a href="blog.html">
-                                    <h5 class="card-title">First cattle which earth unto let health for
-                                        can get and see what you </h5>
-                                </a>
-                                <ul>
-                                    <li> <span class="ti-user"></span>Jhon mike</li>
-                                    <li> <span class="ti-bookmark"></span>Clinic, doctors</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                    {{/each}}
+                {{/if}}
+            </div>
+            <br/>
+            <div class="row" style="display: flex;justify-content:center">
+                <a href="/post/all" class="btn btn-warning">All Posts</a>
             </div>
         </div>
     </section>

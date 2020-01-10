@@ -1,31 +1,21 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../utils/database');
-
-
-const Department = sequelize.define('department',{
-    id:{
-        type : Sequelize.INTEGER,
-        autoIncrement  :true,
-        allowNull : false,
-        primaryKey : true,
-    },
-    name:{
-        type:Sequelize.STRING,
-        allowNull:false,
-        unique:true,
-    },
-    about:{
-        type:Sequelize.TEXT,
-        allowNull:false,
-        
-    },
-    imageUrl:{
-        type:Sequelize.STRING,
-        isUrl:true,
-        max:500,
-        allowNull:false,
-    },
-
-},{timestamps:false});
-
-module.exports = Department;
+module.exports = (sequelize,DataTypes)=>{
+    const department = sequelize.define('department',{
+        name:{
+            type:DataTypes.STRING,
+            allowNull:false,
+            unique:true,
+        },
+        about:{
+            type:DataTypes.TEXT,
+            allowNull:false,
+            
+        },
+        imageUrl:{
+            type:DataTypes.STRING,
+            isUrl:true,
+            max:500,
+            allowNull:false,
+        },
+    });
+    return department;
+}

@@ -1,4 +1,4 @@
-const Doctor = require('../models/doctor');
+const Doctor = require('../models').doctor;
 const urlRegex = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
 exports.createDoctorPage = (req,res,next)=>{

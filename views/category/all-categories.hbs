@@ -1,0 +1,41 @@
+<section class="breadcrumb_part breadcrumb_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner">
+                    <div class="breadcrumb_iner_item">
+                        <h2 style="margin-top:1em;">All Categories</h2>
+                        <h4>Various Categories</h4>
+                        <p class='page-details'>All categories of {{brand.fullName}}</p>
+                        <br/>
+                        {{#if isAuthenticated}}
+                            <a href="/category/create" class="btn btn-info" style="width:20em;display:block;margin:auto;">Create a Category</a>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="all-categories">
+    {{#if categories}}
+        {{#each categories}}
+            <div class="single-category">
+                <a href="/category/{{this.id}}/details">
+                    <img src="{{this.image_url}}" alt="{{this.name}}">
+                </a>
+                
+                <div class="info">
+                    <h4>{{this.name}}</h4>
+                    <div class="timestamp">
+                        <p>{{this.createdAt}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{/if}}
+    {{#if err}}
+        <h5 class="alert alert-danger">Some Error Occured</h5>
+    {{/if}}
+</section>

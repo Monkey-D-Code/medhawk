@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "medhawk",
+    "database": "medhawk_devlopment",
     "host": "127.0.0.1",
     "dialect": "mysql"
     
@@ -10,7 +10,7 @@
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "medhawk_testing",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
@@ -19,7 +19,7 @@
     "username": "medhawki",
     "password": "UttamMah@ta1",
     "database": "medhawk",
-    "host": "medhawk.in",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }

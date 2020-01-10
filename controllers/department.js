@@ -1,5 +1,5 @@
-const Department = require('../models/department');
-const Doctor = require('../models/doctor');
+const Department = require('../models').department;
+const Doctor = require('../models').doctor;
 
 
 exports.allDepartments = (req,res,next)=>{

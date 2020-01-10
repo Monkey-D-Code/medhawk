@@ -1,4 +1,4 @@
-const Brand = require('../models/brand');
+const Brand = require('../models').brand;
 const urlRegex = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
 exports.createBrandPage = (req,res,next)=>{

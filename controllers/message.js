@@ -1,4 +1,4 @@
-const Message = require('../models/message');
+const Message = require('../models').message;
 
 exports.sendMessage = (req,res,next)=>{
     const {name,email,subject,message} = req.body;

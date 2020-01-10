@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="/static/css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/ckeditor/ckeditor.js"></script>
+    
     <style>
         .activeNav{
             color: rgb(219, 209, 61) !important;
@@ -73,9 +75,17 @@
                                 <li class="nav-item">
                                     <a class="nav-link {{#if activeContact}}activeNav{{/if}}" href="/contact">Contact</a>
                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link {{#if activeBlog}}activeNav{{/if}}" href="/blog">Blog</a>
-                                </li>
+                                 <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown"
+                                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Blog
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="/category">Categories</a>
+                                            <a class="dropdown-item" href="/post/all">Posts</a>
+                                            
+                                        </div>
+                                    </li>
                                 {{#if isAuthenticated}}
                                    
                                     <li class="nav-item dropdown">
@@ -133,7 +143,8 @@
                             <li><a href="/appointment"> Online Appointment</a></li>
                             <li><a href="/contact">Contact Us</a></li>
                             <li><a href="/services">Services</a></li>
-                            <li><a href="/blog">Our Blog</a></li>
+                            <li><a href="/category">Categories</a></li>
+                            <li><a href="/post/all">Our Blog</a></li>
                             
                         </ul>
                     </div>
@@ -217,7 +228,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Devel
     <script src="/static/js/contact.js"></script>
     <!-- custom js -->
     <script src="/static/js/custom.js"></script>
-    
+    <script>
+        
+        CKEDITOR.replace( 'editor' );
+    </script>
 </body>
 
 </html>

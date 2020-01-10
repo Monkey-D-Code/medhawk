@@ -1,0 +1,123 @@
+<!-- breadcrumb start-->
+    <section class="breadcrumb_part breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>our blog</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+
+
+    <!--================Blog Area =================-->
+    <section class="blog_area section_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="blog_left_sidebar">
+                        {{#if posts}}
+                            {{#each posts}}
+                                <article class="blog_item">
+                                    <div class="blog_item_img">
+                                        <img class="card-img rounded-0" src="{{this.cover_image_url}}" alt="">
+                                        <a href="#" class="blog_item_date">
+                                            <h3>Posted On</h3>
+                                            <p>{{this.createdAt}}</p>
+                                        </a>
+                                    </div>
+
+                                    <div class="blog_details">
+                                        <a class="d-inline-block" href="/post/{{this.id}}/details">
+                                            <h2>{{this.title}}</h2>
+                                        </a>
+                                        
+                                        <ul class="blog-info-link">
+                                            <li><a href="#"><i class="far fa-user"></i> {{this.category}}</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                </article>
+
+                            {{/each}}
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget search_widget">
+                            <form action="#">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder='Search Keyword'
+                                            onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'Search Keyword'">
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button"><i class="ti-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="button rounded-0 primary-bg text-white w-100 btn_1"
+                                    type="submit">Search</button>
+                            </form>
+                        </aside>
+
+                        <aside class="single_sidebar_widget post_category_widget">
+                            <h4 class="widget_title">Category</h4>
+                            <ul class="list cat-list">
+                                {{#if categories}}
+                                    {{#each categories}}
+                                        <li>
+                                            <a href="/category/{{this.id}}/details" class="d-flex">
+                                                <p>{{this.name}}</p>
+                                                
+                                            </a>
+                                        </li>
+                                    {{/each}}
+                                {{/if}}
+                                
+                            </ul>
+                        </aside>
+                        <aside class="single_sidebar_widget tag_cloud_widget">
+                            <h4 class="widget_title">Tag Clouds</h4>
+                            <ul class="list">
+                                <li>
+                                    <a href="#">Medical</a>
+                                </li>
+                                <li>
+                                    <a href="#">Emergency</a>
+                                </li>
+                                <li>
+                                    <a href="#">Services</a>
+                                </li>
+                                <li>
+                                    <a href="#">Consultancy</a>
+                                </li>
+                                <li>
+                                    <a href="#">Ambulance</a>
+                                </li>
+                                <li>
+                                    <a href="#">Job</a>
+                                </li>
+                                <li>
+                                    <a href="#">Habits</a>
+                                </li>
+                                
+                            </ul>
+                        </aside>
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Blog Area =================-->
+
+    

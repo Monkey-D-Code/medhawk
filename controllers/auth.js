@@ -1,8 +1,8 @@
 const bcrypt = require('bcryptjs');
 
-const User = require('../models/user');
-const Appointment = require('../models/appointment');
-const Message = require('../models/message');
+const User = require('../models').user;
+const Appointment = require('../models').appointment;
+const Message = require('../models').message;
 
 
 exports.loginPage = (req,res,next)=>{

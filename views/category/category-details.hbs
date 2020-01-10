@@ -1,0 +1,64 @@
+<section class="category-heading">
+    <div class="menu-overlay"></div>
+    <img class='category-image' src="{{category.image_url}}" alt="">
+    <div class="information">
+        <h1 class='category-name'>{{category.name}}</h1>
+        <h5>Posted on {{category.createdAt}}</h5>
+        <br/>
+        {{#if isAuthenticated}}
+            <div class="category-options">
+                <a href="/category/{{category.id}}/update" class="btn btn-info">Edit Category</a>
+                <a href="/category/{{category.id}}/delete" class="btn btn-danger">Delete Category</a>
+                <a href="/post/{{category.id}}/create" class="btn btn-success">Create Post</a>
+            </div>
+        {{/if}}
+    </div>
+    
+</section>
+
+<section class="category-body">
+    {{{category.description}}}
+</section>
+<section class="blog_area section_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="blog_left_sidebar">
+                        {{#if posts}}
+                            {{#each posts}}
+                                <article class="blog_item">
+                                    <div class="blog_item_img">
+                                        <img class="card-img rounded-0" src="{{this.cover_image_url}}" alt="">
+                                        <a href="#" class="blog_item_date">
+                                            <h3>Posted On</h3>
+                                            <p>{{this.createdAt}}</p>
+                                        </a>
+                                    </div>
+
+                                    <div class="blog_details">
+                                        <a class="d-inline-block" href="/post/{{this.id}}/details">
+                                            <h2>{{this.title}}</h2>
+                                        </a>
+                                        
+                                        <ul class="blog-info-link">
+                                            <li><a href="#"><i class="far fa-user"></i> {{../category.name}}</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                </article>
+
+                            {{/each}}
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog_right_sidebar">
+                        
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

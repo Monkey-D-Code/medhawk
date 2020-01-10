@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const chalk = require('chalk');
 
 // importing controllers
 const serviceController = require('../controllers/service');
@@ -8,16 +8,18 @@ const messageController = require('../controllers/message');
 
 
 // importing models
-const Department = require('../models/department');
-const Doctor = require('../models/doctor');
+const Department = require('../models').department;
+const Doctor = require('../models').doctor;
+const Post = require('../models').post;
 
 router.get('/',(req,res,next)=>{
     
     Promise.all([
         Department.findAll(),
         Doctor.findAll(),
+        Post.findAll({limit:4})
     ])
-    .then(([departments,doctors])=>{
+    .then(([departments,doctors,posts])=>{
         res.render('index',{
             title:'Welcome to Medhawk',
             activeHome : true,
@@ -27,6 +29,7 @@ router.get('/',(req,res,next)=>{
             why_choose_us : 'We are the one and only, who will assist you for multiple services under one roof. Guided by a group of medicos peoples’ need is easily understood and multiple customizable essential services provided up to the mark',
             departments,
             doctors,
+            posts,
         });
 
     })
@@ -45,11 +48,29 @@ router.get('/',(req,res,next)=>{
     
 })
 router.get('/about',(req,res,next)=>{
-    res.render('about',{
-        title:'About Us | Medhawk',
-        activeAbout : true,
-        isAuthenticated : req.session.isAuthenticated,
-    });
+    Promise.all([
+        Department.findAll(),
+        Doctor.findAll(),
+    ])
+    .then(([departments,doctors])=>{
+        res.render('about',{
+            title:'About Us | Medhawk',
+            activeAbout : true,
+            isAuthenticated : req.session.isAuthenticated,
+            departments,
+            doctors,
+        });
+    })
+    .catch(err=>{
+        console.log(chalk.red(err));
+        res.render('about',{
+            title:'About Us | Medhawk',
+            activeAbout : true,
+            isAuthenticated : req.session.isAuthenticated,
+            err,
+        });
+    })
+    
 })
 
 

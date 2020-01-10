@@ -27,10 +27,7 @@
                 <div class="col-md-6 col-lg-5">
                     <div class="about_us_text">
                         <h2>About us</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
-                            do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                            Quis ipsum suspendisse ultrices gravida. Risus cmodo viverra
-                            maecenas accumsan lacus vel</p>
+                        <p>Emergency Medical services with assistance provided for doctor consultation provision for hiring nurses, physiotherapist, Aaya, Dietician etc. Consultancy for medical and para medical jobs; Ambulance services and many more</p>
                         <a class="btn_2 " href="/contact">Contact Us</a>
                         <div class="banner_item">
                             <div class="single_item">
@@ -63,42 +60,21 @@
                             <div class="col-xl-8">
                                 <h2>Our Depertment</h2>
                                 <div class="row">
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="single_our_depertment">
-                                            <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
-                                                    alt=""></span>
-                                            <h4>Better Future</h4>
-                                            <p>Darkness multiply rule Which from without life creature blessed
-                                                give moveth moveth seas make day which divided our have.</p>
+                                    {{#each departments}}
+                                        <div class="col-lg-6 col-sm-6">
+                                            <div class="single_our_depertment">
+                                                <img src="{{this.imageUrl}}"
+                                                        alt="">
+                                                <hr>
+                                                <h4>{{this.name}}</h4>
+                                                <p>{{truncatewords this.about 30}}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="single_our_depertment">
-                                            <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
-                                                    alt=""></span>
-                                            <h4>Better Future</h4>
-                                            <p>Darkness multiply rule Which from without life creature blessed
-                                                give moveth moveth seas make day which divided our have.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="single_our_depertment">
-                                            <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
-                                                    alt=""></span>
-                                            <h4>Better Future</h4>
-                                            <p>Darkness multiply rule Which from without life creature blessed
-                                                give moveth moveth seas make day which divided our have.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="single_our_depertment">
-                                            <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
-                                                    alt=""></span>
-                                            <h4>Better Future</h4>
-                                            <p>Darkness multiply rule Which from without life creature blessed
-                                                give moveth moveth seas make day which divided our have.</p>
-                                        </div>
-                                    </div>
+                                    {{/each}}
+                                    
+                                    
+                                    
+                                    
                                 </div>
                             </div>
                         </div>

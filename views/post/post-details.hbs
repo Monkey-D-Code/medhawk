@@ -1,0 +1,19 @@
+<section class="category-heading">
+    <div class="menu-overlay"></div>
+    <img class='category-image' src="{{post.cover_image_url}}" alt="">
+    <div class="information">
+        <h1 class='category-name'>{{post.title}}</h1>
+        <h5>Posted on {{post.createdAt}}</h5>
+        <br/>
+        {{#if isAuthenticated}}
+            <div class="category-options">
+                <a href="/post/{{post.id}}/update" class="btn btn-info">Edit Post</a>
+                <a href="/post/{{post.id}}/delete" class="btn btn-danger">Delete Post</a>
+            </div>
+        {{/if}}
+    </div>
+</section>
+
+<section class="category-body">
+    {{{post.body}}}
+</section>

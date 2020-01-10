@@ -1,4 +1,4 @@
-const Service = require('../models/service');
+const Service = require('../models').service;
 
 exports.createServicePage = (req,res,next)=>{
     if(req.session.isAuthenticated){
