@@ -83,7 +83,7 @@ app.use((req,res,next)=>{
     })
     .catch(err=>{
         console.log(err);
-        res.redirect('/brand/create');
+        
     })
     
 })
@@ -102,10 +102,11 @@ app.use((req,res,next)=>{
 })
 
 // sync the databse to models
-db.sequelize.sync({force:false})
+db.sequelize.sync({force:database_force})
     .then(result=>{
         console.log(chalk.yellow(`[ENVIRONMENT : ${env}]`));
         app.listen(port , ()=>{
+            console.log(chalk.red(database_force))
             console.log(chalk.green(`PORT : ${port}`));
             console.log(chalk.green('Medhawk server started.'));
         });
